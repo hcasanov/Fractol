@@ -47,5 +47,7 @@ void    ft_init_list(t_mlx *mlx);
 void	ft_exit(void);
 void	ft_draw_fractal(t_mlx *mlx);
 void	ft_push_img(t_mlx *mlx);
+void	ft_algo_fractal(t_mlx *mlx, int x, int y);
+void	ft_set_pixel(t_mlx *mlx, int x, int y);
 
 #endif

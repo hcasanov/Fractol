@@ -20,7 +20,7 @@
 
 void	ft_push_img(t_mlx *mlx)
 {
-	mlx_put_image_to_window(mlx, mlx->window, mlx->img_ptr, 0, 0);
+	mlx_put_image_to_window(mlx->ptr, mlx->window, mlx->img_ptr, 0, 0);
 }
 
 void	ft_creat_img(t_mlx *mlx)
@@ -32,6 +32,7 @@ void	ft_creat_img(t_mlx *mlx)
 	bpp = 32;
 	s_l = (mlx->screen_w) * 4;
 	endian = 0;
+	
 	mlx->img_ptr = mlx_new_image(mlx->ptr, mlx->img_w, mlx->img_h);
 	mlx->img_str = mlx_get_data_addr(mlx->img_ptr, &bpp, &s_l, &endian);
 }
