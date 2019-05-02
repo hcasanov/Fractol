@@ -23,4 +23,11 @@ void    ft_init_list(t_mlx *mlx)
 	mlx->green = ((unsigned char *)&(mlx->color))[1];
 	mlx->blue = ((unsigned char *)&(mlx->color))[0];
     mlx->window = mlx_new_window(mlx->ptr, mlx->img_w, mlx->img_h, "test");
+
+    mlx->x1 = -2.1;
+    mlx->x2 = 0.6;
+    mlx->y1 = -1.2;
+    mlx->y2 = 1.2;
+    mlx->zoom = 100;
+    mlx->in_max = 50;
 }

@@ -33,12 +33,14 @@ void	ft_draw_fractal(t_mlx *mlx)
 {
 		int		x;
 		int		y;
+        double img_x = (mlx->x2 - mlx->x1) * mlx->zoom;
+        double img_y = (mlx->y2 - mlx->y1) * mlx->zoom;
 
 		x = 0;
-		y = 0;
-		while (x < 1800)
+		while (x < img_x)
 		{
-			while (y < 1200)
+            y = 0;
+			while (y < img_y)
 			{
 				ft_algo_fractal(mlx, x, y);
 				y++;
@@ -49,24 +51,27 @@ void	ft_draw_fractal(t_mlx *mlx)
 
 void	ft_algo_fractal(t_mlx *mlx, int x, int y)
 {
-	int		in_max = 50;
-    int     c;
-    int     z;
-    int     i;
+    double tmp;
 
-    i = 0;
-    c = x + i * y;
-    z = 0;
+	mlx->c_r = x / mlx->zoom - mlx->x1;
+    mlx->c_i = y / mlx->zoom - mlx->y1;
+    mlx->z_r = 0;
+    mlx->z_i = 0;
+    mlx->i = 0;
 
-    while (z < 2 && i < in_max)
+    while ((mlx->z_r * mlx->z_r + mlx->z_i * mlx->z_i) < 4 && mlx->i < mlx->in_max)
     {
-        z = z * z + c;
-        i++;
+        tmp = mlx->z_r;
+        mlx->z_r = mlx->z_r * mlx->z_r - mlx->z_i * mlx->z_i + mlx->c_r;
+        mlx->z_i = 2 * mlx->z_i * tmp + mlx->c_i;
+        mlx->i++;
     }
-    if (i == in_max)
+    printf("%f\n", mlx->i);
+    if (mlx->i == mlx->in_max)
     {
         ft_set_pixel(mlx, x, y);
     }
+    mlx->i = 0;
 }
 
 void        ft_julia(void)
@@ -76,6 +81,7 @@ void        ft_julia(void)
         ft_exit();
     ft_init_list(mlx);
     ft_creat_img(mlx);
+    ft_draw_fractal(mlx);
     //ft_set_pixel(mlx);
     ft_push_img(mlx);
     // ft_push_img(mlx);

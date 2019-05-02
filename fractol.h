@@ -13,7 +13,7 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-#include <mlx.h>
+#include "minilibx_macos/mlx.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -26,18 +26,30 @@ typedef struct      s_mlx
    // int     red;
     //int     green;
     //int     blue;
-    int     img_w;
-    int     img_h;
-    int     screen_w;
-    int     screen_h;
-    void    *img_ptr;
-    void    *ptr;
-    void    *window;
-    char    *img_str;
+    int          img_w;
+    int          img_h;
+    int          screen_w;
+    int          screen_h;
+    double       z_r;
+    double       z_i;
+    void         *img_ptr;
+    void         *ptr;
+    void         *window;
+    char         *img_str;
     int					color;
 	unsigned char		red;
 	unsigned char		green;
 	unsigned char		blue;
+
+    double    x1;
+    double    x2;
+    double    y1;
+    double      y2;
+    double      zoom;
+    double      in_max;
+    double	c_r;
+	double	c_i;
+	double	i;
 }                   t_mlx;
 
 void    ft_usage(void);
