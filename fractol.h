@@ -28,6 +28,8 @@ typedef struct      s_mlx
     //int     blue;
     int          img_w;
     int          img_h;
+    int          m_x;
+    int          m_y;
     int          screen_w;
     int          screen_h;
     double       z_r;
@@ -59,7 +61,14 @@ void    ft_init_list(t_mlx *mlx);
 void	ft_exit(void);
 void	ft_draw_fractal(t_mlx *mlx);
 void	ft_push_img(t_mlx *mlx);
-void	ft_algo_fractal(t_mlx *mlx, int x, int y);
+double	ft_algo_fractal(t_mlx *mlx, int x, int y);
 void	ft_set_pixel(t_mlx *mlx, int x, int y);
+void	ft_zoom(int key, t_mlx *mlx);
+int		ft_get_key(int key, t_mlx *mlx);
+void	ft_refresh_img(t_mlx *mlx);
+void	ft_var_c(int key, t_mlx *mlx);
+int     ft_get_key_mouse(int mouse_key, int x, int y, t_mlx *mlx);
+void    ft_move_h(int key, t_mlx *mlx);
+void    ft_move_v(int key, t_mlx *mlx);
 
 #endif

@@ -13,11 +13,6 @@
 
 #include "./fractol.h"
 
-/*void	ft_draw_fractal(t_mlx *mlx)
-{
-
-}*/
-
 void	ft_push_img(t_mlx *mlx)
 {
 	mlx_put_image_to_window(mlx->ptr, mlx->window, mlx->img_ptr, 0, 0);
@@ -35,4 +30,12 @@ void	ft_creat_img(t_mlx *mlx)
 	
 	mlx->img_ptr = mlx_new_image(mlx->ptr, mlx->img_w, mlx->img_h);
 	mlx->img_str = mlx_get_data_addr(mlx->img_ptr, &bpp, &s_l, &endian);
+}
+
+void	ft_refresh_img(t_mlx *mlx)
+{
+	mlx_destroy_image(mlx->ptr, mlx->img_ptr);
+	ft_creat_img(mlx);
+	ft_draw_fractal(mlx);
+	ft_push_img(mlx);
 }
