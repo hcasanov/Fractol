@@ -23,9 +23,6 @@
 
 typedef struct      s_mlx
 {
-   // int     red;
-    //int     green;
-    //int     blue;
     int          img_w;
     int          img_h;
     int          m_x;
@@ -52,23 +49,31 @@ typedef struct      s_mlx
     double	c_r;
 	double	c_i;
 	double	i;
+    double  k_max;
+
+    int     fractal;
 }                   t_mlx;
 
 void    ft_usage(void);
-void    ft_julia(void);
+void    ft_fractal(t_mlx *mlx);
 void	ft_creat_img(t_mlx *mlx);
 void    ft_init_list(t_mlx *mlx);
 void	ft_exit(void);
-void	ft_draw_fractal(t_mlx *mlx);
+void	ft_draw_julia(t_mlx *mlx);
 void	ft_push_img(t_mlx *mlx);
-double	ft_algo_fractal(t_mlx *mlx, int x, int y);
-void	ft_set_pixel(t_mlx *mlx, int x, int y);
+double	ft_algo_julia(t_mlx *mlx, int x, int y);
+void	ft_set_pixel(t_mlx *mlx, int x, int y, double c);
 void	ft_zoom(int key, t_mlx *mlx);
 int		ft_get_key(int key, t_mlx *mlx);
 void	ft_refresh_img(t_mlx *mlx);
-void	ft_var_c(int key, t_mlx *mlx);
 int     ft_get_key_mouse(int mouse_key, int x, int y, t_mlx *mlx);
 void    ft_move_h(int key, t_mlx *mlx);
 void    ft_move_v(int key, t_mlx *mlx);
+int     ft_mouse_cur(int x, int y, t_mlx *mlx);
+void	ft_key_exit(void);
+void	ft_draw_mandelbrot(t_mlx *mlx);
+double	ft_algo_mandelbrot(t_mlx *mlx, int x, int y);
+void       ft_init_list_julia(t_mlx *mlx);
+void       ft_init_list_mandelbrot(t_mlx *mlx);
 
 #endif
