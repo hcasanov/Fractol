@@ -15,7 +15,7 @@
 void		ft_init_list(t_mlx *mlx)
 {
 	if (!(mlx->ptr = mlx_init()))
-		ft_key_exit();
+		ft_exit();
 	mlx->img_w = 1800;
 	mlx->img_h = 1200;
 	mlx->color = 0xfff;
@@ -24,7 +24,7 @@ void		ft_init_list(t_mlx *mlx)
 	mlx->blue = ((unsigned char *)&(mlx->color))[0];
 	if (!(mlx->window = mlx_new_window(mlx->ptr, mlx->img_w, mlx->img_h, "test"\
 )))
-		ft_key_exit();
+		ft_exit();
 	mlx->move = 1;
 }
 

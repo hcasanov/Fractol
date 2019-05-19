@@ -15,9 +15,9 @@ NAME = fractol
 
 CC = gcc
 
-FLAG = -Wall -Werror -Wextra
+FLAG = -L./minilibx_macos #-Wall -Werror -Wextra
 
-FLAG_LIBX = -lmlx -framework OpenGL -framework AppKit
+FLAG_LIBX = -framework OpenGL -framework AppKit
 
 SRC =  burningship.c fractal.c image.c julia.c main.c mandelbrot.c \
 tools.c init.c

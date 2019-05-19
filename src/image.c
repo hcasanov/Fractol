@@ -15,7 +15,7 @@
 void	ft_push_img(t_mlx *mlx)
 {
 	if (!(mlx_put_image_to_window(mlx->ptr, mlx->window, mlx->img_ptr, 0, 0)))
-		ft_key_exit();
+		ft_exit(mlx);
 }
 
 void	ft_creat_img(t_mlx *mlx)
@@ -28,9 +28,9 @@ void	ft_creat_img(t_mlx *mlx)
 	s_l = (mlx->screen_w) * 4;
 	endian = 0;
 	if (!(mlx->img_ptr = mlx_new_image(mlx->ptr, mlx->img_w, mlx->img_h)))
-		ft_key_exit();
+		ft_exit(mlx);
 	if (!(mlx->img_str = mlx_get_data_addr(mlx->img_ptr, &bpp, &s_l, &endian)))
-		ft_key_exit();
+		ft_exit(mlx);
 }
 
 void	ft_set_pixel(t_mlx *mlx, int x, int y, double c)
@@ -51,7 +51,8 @@ void	ft_set_pixel(t_mlx *mlx, int x, int y, double c)
 
 void	ft_refresh_img(t_mlx *mlx)
 {
-	mlx_destroy_image(mlx->ptr, mlx->img_ptr);
+	// mlx_destroy_image(mlx->ptr, mlx->img_ptr);
+	ft_bzero(&mlx->img_str, mlx->img_w * mlx->img_h + 1);
 	ft_creat_img(mlx);
 	if (mlx->fractal == 1)
 		ft_draw_julia(mlx);

@@ -12,8 +12,9 @@
 
 #include "fractol.h"
 
-void		ft_key_exit(void)
+void		ft_key_exit(t_mlx *mlx)
 {
+	mlx_destroy_image(mlx->ptr, mlx->img_ptr);
 	exit(EXIT_SUCCESS);
 }
 
@@ -21,11 +22,12 @@ void		ft_usage(void)
 {
 	ft_putstr("usage : fractol [fractals]\n\n    Fractals disponibles:\n\n");
 	ft_putstr("---> Julia\n---> Mandelbrot\n---> Burningship\n\n");
-	ft_key_exit();
+	exit(EXIT_USAGE);
 }
 
-void		ft_exit(void)
+void		ft_exit(t_mlx *mlx)
 {
+	mlx_destroy_image(mlx->ptr, mlx->img_ptr);
 	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
@@ -48,8 +50,8 @@ int			main(int argc, char **argv)
 
 	if (argc == 2)
 	{
-		ft_init_list(&mlx);
 		ft_fractal_index(argv[1], &mlx);
+		ft_init_list(&mlx);
 		ft_fractal(&mlx);
 	}
 	else

@@ -29,7 +29,7 @@ ft_memccpy.c ft_putnbr.c ft_strequ.c ft_strnequ.c \
 ft_memchr.c ft_putnbr_fd.c ft_striter.c ft_strnew.c ft_lstadd.c \
 ft_lstdel.c ft_lstdelone.c ft_lstmap.c ft_lstnew.c ft_lstiter.c \
 ft_strrev.c ft_countword.c ft_prtstrtab.c ft_twodimtab.c \
-get_next_line.c ft_sqrt.c \
+get_next_line.c ft_sqrt.c ft_swap.c ft_strndup.c\
 
 OBJ = $(SRC:.c=.o)
 
