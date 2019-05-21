@@ -31,21 +31,29 @@ ft_lstdel.c ft_lstdelone.c ft_lstmap.c ft_lstnew.c ft_lstiter.c \
 ft_strrev.c ft_countword.c ft_prtstrtab.c ft_twodimtab.c \
 get_next_line.c ft_sqrt.c ft_swap.c ft_strndup.c\
 
+RED = \033[91m
+GREEN = \033[92m
+BLUE = \033[96m
+YEL = \033[93m
+BL = \033[0m
+MAG = \033[35m
+
 OBJ = $(SRC:.c=.o)
 
 $(NAME):
-	gcc $(FLAGS) -c $(SRC) -I $(INCLUDE)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+	@gcc $(FLAGS) -c $(SRC) -I $(INCLUDE)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
+	@echo "          $(RED)< Compilation LIBFT Done ! >$(BL)"
 
 all: $(NAME)
 
 .PHONY: clean fclean re
 
 clean:
-	rm -rf $(OBJ)
+	@rm -rf $(OBJ)
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean all

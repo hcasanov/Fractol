@@ -6,7 +6,7 @@
 #    By: hcasanov <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/13 16:01:39 by hcasanov          #+#    #+#              #
-#    Updated: 2019/05/13 16:01:42 by hcasanov         ###   ########.fr        #
+#    Updated: 2019/05/20 13:24:17 by hcasanov         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,12 +15,12 @@ NAME = fractol
 
 CC = gcc
 
-FLAG = -L./minilibx_macos #-Wall -Werror -Wextra
+FLAG = -Wall -Werror -Wextra
 
-FLAG_LIBX = -framework OpenGL -framework AppKit
+FLAG_LIBX = -lmlx -framework OpenGL -framework AppKit
 
 SRC =  burningship.c fractal.c image.c julia.c main.c mandelbrot.c \
-tools.c init.c
+tools.c init.c tools_2.c
 
 SRC_DIR = src/
 

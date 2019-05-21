@@ -6,7 +6,7 @@
 /*   By: hcasanov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 17:10:11 by hcasanov          #+#    #+#             */
-/*   Updated: 2019/05/16 17:02:59 by hcasanov         ###   ########.fr       */
+/*   Updated: 2019/05/21 13:31:45 by hcasanov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ void	ft_set_pixel(t_mlx *mlx, int x, int y, double c)
 
 	if (x < 0 || x >= mlx->img_w || y < 0 || y >= mlx->img_h)
 		return ;
-	px = (4 * (int)x);
-	py = ((int)y * 4 * mlx->img_w);
+	px = (4 * x);
+	py = (y * 4 * mlx->img_w);
 	result = (px + py);
 	mlx->img_str[result] = mlx->red * (c / 50);
 	mlx->img_str[result + 1] = mlx->green * (c / 50);
@@ -51,8 +51,7 @@ void	ft_set_pixel(t_mlx *mlx, int x, int y, double c)
 
 void	ft_refresh_img(t_mlx *mlx)
 {
-	// mlx_destroy_image(mlx->ptr, mlx->img_ptr);
-	ft_bzero(&mlx->img_str, mlx->img_w * mlx->img_h + 1);
+	mlx_destroy_image(mlx->ptr, mlx->img_ptr);
 	ft_creat_img(mlx);
 	if (mlx->fractal == 1)
 		ft_draw_julia(mlx);

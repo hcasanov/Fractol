@@ -22,13 +22,12 @@ void		ft_usage(void)
 {
 	ft_putstr("usage : fractol [fractals]\n\n    Fractals disponibles:\n\n");
 	ft_putstr("---> Julia\n---> Mandelbrot\n---> Burningship\n\n");
-	exit(EXIT_USAGE);
+	exit(EXIT_FAILURE);
 }
 
 void		ft_exit(t_mlx *mlx)
 {
 	mlx_destroy_image(mlx->ptr, mlx->img_ptr);
-	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
 

@@ -34,5 +34,6 @@ void		ft_fractal(t_mlx *mlx)
 	mlx_hook(mlx->window, 2, (1L << 0), ft_get_key, mlx);
 	mlx_mouse_hook(mlx->window, ft_get_key_mouse, mlx);
 	mlx_hook(mlx->window, 6, 0, ft_mouse_cur, mlx);
+	mlx_hook(mlx->window, 17, 0, ft_close, mlx);
 	mlx_loop(mlx->ptr);
 }

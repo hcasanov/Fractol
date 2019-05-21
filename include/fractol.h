@@ -13,7 +13,7 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "../minilibx_macos/mlx.h"
+# include "mlx.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <math.h>
@@ -54,7 +54,7 @@ void				ft_usage(void);
 void				ft_fractal(t_mlx *mlx);
 void				ft_creat_img(t_mlx *mlx);
 void				ft_init_list(t_mlx *mlx);
-void				ft_exit(void);
+void				ft_exit(t_mlx *mlx);
 void				ft_draw_julia(t_mlx *mlx);
 void				ft_push_img(t_mlx *mlx);
 double				ft_algo_julia(t_mlx *mlx, int x, int y);
@@ -63,7 +63,7 @@ int					ft_get_key(int key, t_mlx *mlx);
 void				ft_refresh_img(t_mlx *mlx);
 int					ft_get_key_mouse(int mouse_key, int x, int y, t_mlx *mlx);
 int					ft_mouse_cur(int x, int y, t_mlx *mlx);
-void				ft_key_exit(void);
+void				ft_key_exit(t_mlx *mlx);
 void				ft_draw_mandelbrot(t_mlx *mlx);
 double				ft_algo_mandelbrot(t_mlx *mlx, int x, int y);
 void				ft_init_list_julia(t_mlx *mlx);
@@ -72,5 +72,9 @@ double				ft_algo_burningship(t_mlx *mlx, int x, int y);
 void				ft_draw_burningship(t_mlx *mlx);
 void				ft_init_list_burningship(t_mlx *mlx);
 void				ft_fractal_index(char *str, t_mlx *mlx);
+void				ft_reset_img(t_mlx *mlx);
+void				ft_move(t_mlx *mlx, int key);
+void				ft_color(t_mlx *mlx, int key);
+int					ft_close(void *param);
 
 #endif
